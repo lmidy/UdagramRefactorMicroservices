@@ -5,15 +5,15 @@ metadata:
     service: udagram-backend-feed
   name: udagram-backend-feed
 spec:
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
         service: udagram-backend-feed
     spec:
       containers:
-      - image: lynettemidy/udacity-backend-feed
-        name: udagram-backend-feed
+      - image: lynettemidy/udagram-backend-feed
+        name: backend-feed
         imagePullPolicy: Always  
         resources:
           requests:
@@ -21,7 +21,7 @@ spec:
             cpu: "250m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"
+            cpu: "500m"                  
         env:
         - name: URL
           valueFrom:
@@ -67,7 +67,16 @@ spec:
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRES_USERNAME  
+              key: POSTGRES_USERNAME      
+        volumeMounts:
+        - name: aws-secret
+          mountPath: "/root/.aws/"
+          readOnly: true        
+      restartPolicy: Always
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: aws-secret 
   selector:
     matchLabels:
       service: udagram-backend-feed
