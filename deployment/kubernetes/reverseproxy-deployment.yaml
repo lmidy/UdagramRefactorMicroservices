@@ -12,7 +12,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: lynettemidy/reverseproxy
+      - image: lynettemidy/udagram-reverseproxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
