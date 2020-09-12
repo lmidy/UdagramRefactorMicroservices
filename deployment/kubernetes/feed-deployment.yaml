@@ -18,10 +18,10 @@ spec:
         resources:
           requests:
             memory: "64Mi"
-            cpu: "100m"
+            cpu: "250m"
           limits:
             memory: "1024Mi"
-            cpu: "250m"
+            cpu: "500m"
         env:
         - name: URL
           valueFrom:
@@ -67,7 +67,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRES_USERNAME      
+              key: POSTGRES_USERNAME  
   selector:
     matchLabels:
       service: udagram-backend-feed
