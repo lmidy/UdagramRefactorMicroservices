@@ -42,5 +42,6 @@ typings/
 
 # dotenv environment variables file
 .env
-
-.
+aws-secret.yaml
+env-secret.yaml
+env-configmap.yaml
