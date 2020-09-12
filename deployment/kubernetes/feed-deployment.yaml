@@ -23,16 +23,16 @@ spec:
             memory: "1024Mi"
             cpu: "250m"
         env:
-        - name: FRONTEND_URL
+        - name: URL
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: FRONTEND_URL
-        - name: AWS_MEDIA_BUCKET
+              key: URL
+        - name: AWS_BUCKET
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: AWS_MEDIA_BUCKET
+              key: AWS_BUCKET
         - name: AWS_PROFILE
           valueFrom:
             configMapKeyRef:
@@ -48,35 +48,26 @@ spec:
             configMapKeyRef:
               name: env-config
               key: JWT_SECRET
-        - name: POSTGRESS_DB
+        - name: POSTGRES_DB
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: POSTGRESS_DB
-        - name: POSTGRESS_HOST
+              key: POSTGRES_DB
+        - name: POSTGRES_HOST
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: POSTGRESS_HOST
-        - name: POSTGRESS_PASSWORD
+              key: POSTGRES_HOST
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRESS_PASSWORD
-        - name: POSTGRESS_USERNAME
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRESS_USERNAME      
-        volumeMounts:
-        - name: aws-secret
-          mountPath: "/root/.aws/"
-          readOnly: true        
-      restartPolicy: Always
-      volumes:
-      - name: aws-secret
-        secret:
-          secretName: aws-secret
+              key: POSTGRES_USERNAME      
   selector:
     matchLabels:
       service: udagram-backend-feed
