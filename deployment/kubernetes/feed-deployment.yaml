@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - image: lynettemidy/udagram-backend-feed
-        name: backend-feed
+        name: udagram-backend-feed
         imagePullPolicy: Always  
         resources:
           requests:
