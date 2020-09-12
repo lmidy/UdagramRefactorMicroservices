@@ -12,7 +12,7 @@ spec:
         service: udagram-backend-user
     spec:
       containers:
-      - image: lynettemidy/udacity-backend-user
+      - image: lynettemidy/udagram-backend-user
         name: udagram-backend-user
         imagePullPolicy: Always  
         resources:
