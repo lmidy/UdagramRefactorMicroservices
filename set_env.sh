@@ -2,7 +2,7 @@
 # DO NOT STORE YOUR CREDENTIALS INTO GIT
 export POSTGRES_USERNAME=udagramfinal
 export POSTGRES_PASSWORD=udagramfinal
-export POSTGRES_HOST=db-udagram-prod.ctn15vybqxex.us-west-2.rds.amazonaws.com
+export POSTGRES_HOST=cdr.ctn15vybqxex.us-west-2.rds.amazonaws.com
 export POSTGRES_DB=postgres
 export AWS_BUCKET=udagram-microservice-prod
 export AWS_REGION=us-west-2
